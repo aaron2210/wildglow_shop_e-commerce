@@ -5,11 +5,13 @@ import os
 from flask import Flask, request, jsonify, url_for, send_from_directory
 from flask_migrate import Migrate
 from flask_swagger import swagger
-from api.utils import APIException, generate_sitemap
-from api.models import db
-from api.routes import api
-from api.admin import setup_admin
-from api.commands import setup_commands
+from flask_jwt_extended import JWTManager
+from flask_cors import CORS
+from src.api.utils import APIException, generate_sitemap
+from src.api.models import db
+from src.api.routes import users_bp, clients_bp
+from src.api.admin import setup_admin
+from src.api.commands import setup_commands
 
 # from models import Person
 
@@ -28,9 +30,11 @@ else:
     app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:////tmp/test.db"
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY", "super-secret-key") 
 MIGRATE = Migrate(app, db, compare_type=True)
 db.init_app(app)
-
+jwt = JWTManager(app)
+CORS(app)
 # add the admin
 setup_admin(app)
 
@@ -38,7 +42,9 @@ setup_admin(app)
 setup_commands(app)
 
 # Add all endpoints form the API with a "api" prefix
-app.register_blueprint(api, url_prefix='/api')
+#app.register_blueprint(api, url_prefix='/api')
+app.register_blueprint(users_bp, url_prefix="/api/admin")
+app.register_blueprint(clients_bp, url_prefix="/api")
 
 # Handle/serialize errors like a JSON object
 

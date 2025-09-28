@@ -1,6 +1,6 @@
 
 import click
-from api.models import db, User
+from src.api.models import db, Users, enumRol
 
 """
 In this file, you can add as many commands as you want using the @app.cli.command decorator
@@ -19,7 +19,7 @@ def setup_commands(app):
     def insert_test_users(count):
         print("Creating test users")
         for x in range(1, int(count) + 1):
-            user = User()
+            user = Users()
             user.email = "test_user" + str(x) + "@test.com"
             user.password = "123456"
             user.is_active = True
@@ -32,3 +32,19 @@ def setup_commands(app):
     @app.cli.command("insert-test-data")
     def insert_test_data():
         pass
+
+    @app.cli.command("create-admin")
+    def create_admin():
+        
+        admin_email = "wildandglow.shop@gmail.com"
+        admin_pass = "elirolglow951"
+
+        existing = Users.query.filter_by(email=admin_email).first()
+        if not existing:
+            admin = Users(email=admin_email, rol=enumRol.ADMIN)
+            admin.set_password(admin_pass)  # usa hash
+            db.session.add(admin)
+            db.session.commit()
+            print("✅ Admin creado:", admin_email)
+        else:
+            print("⚠️ El admin ya existe:", admin_email)

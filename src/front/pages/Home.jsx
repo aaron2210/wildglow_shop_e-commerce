@@ -1,6 +1,10 @@
 import React, { useEffect } from "react"
 import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
+import { Carrusel } from "../components/Carrusel.jsx";
+import { Banner } from "../components/Banner.jsx";
+import { Ofrecemos } from "../components/Ofrecemos.jsx";
+import { Categorias } from "../components/Categorias.jsx";
 
 export const Home = () => {
 
@@ -33,20 +37,11 @@ export const Home = () => {
 	}, [])
 
 	return (
-		<div className="text-center mt-5">
-			<h1 className="display-4">Hello Rigo!!</h1>
-			<p className="lead">
-				<img src={rigoImageUrl} className="img-fluid rounded-circle mb-3" alt="Rigo Baby" />
-			</p>
-			<div className="alert alert-info">
-				{store.message ? (
-					<span>{store.message}</span>
-				) : (
-					<span className="text-danger">
-						Loading message from the backend (make sure your python 🐍 backend is running)...
-					</span>
-				)}
-			</div>
+		<div className="text-center">
+			<Carrusel/>
+			<Banner/>
+			<Ofrecemos/>
+			<Categorias/>
 		</div>
 	);
 }; 

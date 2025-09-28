@@ -1,0 +1,213 @@
+.myBg {
+  background-color: #fff2eb;
+}
+.barra-divisora {
+  border-left: 2px solid #ccc;
+  height: 24px;
+}
+ul {
+  list-style: none;
+}
+li {
+  font-family: "poppins";
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.myNav {
+  position: relative;
+  z-index: 1030;
+}
+.bg-offcanvas {
+  background-color: #fff2eb;
+}
+.marca {
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+  align-items: center;
+}
+.logo-navbar {
+  height: 42px;
+  width: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.logo-navbar:hover,
+li:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 6px rgba(255, 105, 180, 0.6));
+}
+#carouselExampleIndicators {
+  max-height: 500px;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.001);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+#carouselExampleIndicators .carousel-item img {
+  width: 100%;
+  height: 500px;
+  object-fit: contain;
+  display: block;
+}
+
+.carousel-overlay-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.5)
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+.bg-footer {
+  background-color: #ffdcdc;
+}
+.icon-tiktok {
+  color: #69c9d0;
+  transition: color 0.3s ease;
+}
+.icon-tiktok:hover {
+  color: #3ca3b3;
+}
+.icon-instagram {
+  color: #e1306c;
+  transition: color 0.3s ease;
+}
+.icon-instagram:hover {
+  color: #b22153;
+}
+.bg-light-pink {
+  background-color: #ffe7e9;
+}
+.myContainer {
+  max-width: 70%;
+  height: 18%;
+}
+.img-quemador {
+  max-height: 300px;
+}
+.slogan {
+  color: #e2747d;
+}
+.btn-busqueda {
+  background-color: #eaa4aa;
+}
+.btn-busqueda:hover {
+  background-color: #e2747d;
+}
+
+.icon-circle {
+  width: 70px;
+  height: 70px;
+  background-color: #f8c6d4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.service-card {
+  background-color: #fff2eb;
+  transition: all 0.3s ease;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  border: 3px solid #f9c5d7;
+  background-color: #ffeef3;
+}
+
+.service-card:hover .icon-circle {
+  transform: scale(1.1) rotate(5deg);
+}
+
+@media (min-width: 992px) {
+  .offset-up {
+    transform: translateY(-30px);
+  }
+
+  .offset-down {
+    transform: translateY(30px);
+  }
+}
+
+.category-card {
+  background-color: #fff0f4;
+  border-radius: 16px;
+  padding: 20px;
+  width: 90%;
+  max-width: 320px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+
+  min-height: 420px;
+}
+
+.category-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.category-card:hover {
+  transform: scale(1.06);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.raised {
+  margin-top: -40px;
+}
+
+.lowered {
+  margin-top: 40px;
+}
+
+.btn-pink {
+  background-color: #f38ba0;
+  color: black;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-pink:hover {
+  background-color: #e66b85;
+}
+.politicaCookies {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  line-height: 1.6;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input:focus {
+  border-color: #e83e8c !important;
+  box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.25);
+}
+
+.icon-inside-input {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #aaa;
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+

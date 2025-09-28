@@ -1,4 +1,5 @@
 from flask import jsonify, url_for
+from functools import wraps
 
 class APIException(Exception):
     status_code = 400
@@ -14,6 +15,13 @@ class APIException(Exception):
         rv = dict(self.payload or ())
         rv['message'] = self.message
         return rv
+
+def admin_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        # Como no tienes admins todavía, no bloqueamos nada
+        return f(*args, **kwargs)
+    return decorated_function
 
 def has_no_empty_params(rule):
     defaults = rule.defaults if rule.defaults is not None else ()
